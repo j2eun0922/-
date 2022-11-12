@@ -1,27 +1,31 @@
-#include <stdio.h>
 #define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <stdbool.h>
+#define PI 3.1415926535 
 
 double sum(double a, double b) {
 
-    return a + b;   //´õÇÏ±â ÇÔ¼ö    ´õÇÏ±â¿¡ ´ëÇÑ ÇÔ¼ö
+    return a + b;   //ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½Ô¼ï¿½    ï¿½ï¿½ï¿½Ï±â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 
 }
 
 double minus(double a, double b) {
 
-    return a - b;    //»¬¼À ÇÔ¼ö      »¬¼À¿¡ ´ëÇÑ ÇÔ¼ö
+    return a - b;    //ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 
 }
 
 double multiply(double a, double b) {
 
-    return a * b;    //°öÇÏ±â ÇÔ¼ö  °öÇÏ±â¿¡ ´ëÇÑ ÇÔ¼ö
+    return a * b;    //ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½Ô¼ï¿½  ï¿½ï¿½ï¿½Ï±â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 
 }
 
 double divide(double a, double b) {
 
-    if (b == 0.0)return 0.0;  //³ª´©±â ÇÔ¼ö ³ª´©±â¿¡ ´ëÇÑ ÇÔ¼ö
+    if (b == 0.0)return 0.0;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 
     else return a / b;
 
@@ -29,19 +33,19 @@ double divide(double a, double b) {
 
 double mod(double a, double b) {
 
-    return (double)((int)a % (int)b);  //³ª¸ÓÁö¸¦ ±¸ÇÏ´Â ÇÔ¼ö 
+    return (double)((int)a % (int)b);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ 
 
 }
 
 double inverse(double a) {
 
-    return 1.0 / a;    //¿ª¼ö¸¦ ±¸ÇÏ´Â ÇÔ¼ö 
+    return 1.0 / a;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ 
 
 }
 
 double sign(double a) {
 
-    return a * -1.0;   //¾ç¼ö/Á¤¼ö¸¦ ¹Ù²Ù´Â ÇÔ¼ö 
+    return a * -1.0;   //ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù´ï¿½ ï¿½Ô¼ï¿½ 
 
 }
 
@@ -49,21 +53,21 @@ double sign(double a) {
 
 double exponential(double a, double b) {
 
-    return pow(a, b);   //°ÅµìÁ¦°ö ÇÔ¼ö 
+    return pow(a, b);   //ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ 
 
 }
 
 double inverse_exponential(double a, double b) {
 
-    return pow(a, inverse(b));   //°Åµì Á¦°ö±Ù ÇÔ¼ö a^b °è»ê 
+    return pow(a, inverse(b));   //ï¿½Åµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ a^b ï¿½ï¿½ï¿½ 
 
 }
 
 double mySin(double a) {
 
-    double q = (PI * a) / 180.0;   //»ï°¢ÇÔ¼ö ½ÃÀÛ(»ï°¢ÇÔ¼öÀÇ ´ÜÀ§´Â ¶óµð¾È (´Ü q¿¡´ëÇÑ Á¤ÀÇ¸¦ ÇÏÁö ¾ÊÀ¸¸é Á¤¼ö°ªÀ¸·Î ÀÔ·Â¹Þ±â ¶§¹®¿¡ q¸¦ Á¤ÀÇÇØ¼­ ¶óµð¾ÈÀ¸·Î º¯È¯½ÃÄÑÁØ´Ù.)
+    double q = (PI * a) / 180.0;   //ï¿½ï°¢ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï°¢ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â¹Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ qï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.)
 
-    return sin(q);    //sinÇÔ¼ö 
+    return sin(q);    //sinï¿½Ô¼ï¿½ 
 
 }
 
@@ -71,7 +75,7 @@ double myCos(double a) {
 
     double q = (PI * a) / 180.0;
 
-    return cos(q);    //cosÇÔ¼ö 
+    return cos(q);    //cosï¿½Ô¼ï¿½ 
 
 }
 
@@ -79,19 +83,19 @@ double myTan(double a) {
 
     double q = (PI * a) / 180.0;
 
-    return tan(q);    //tanÇÔ¼ö 
+    return tan(q);    //tanï¿½Ô¼ï¿½ 
 
 }
 
 double myLog(double a) {
 
-    return log(a);    //logÇÔ¼ö 
+    return log(a);    //logï¿½Ô¼ï¿½ 
 
 }
 
 double factorial(double target) {
 
-    double ret = 1;  //ÆÑÅä¸®¾ó ÇÔ¼ö  for¹®À» ÀÌ¿ëÇÑ Á¤ÀÇ
+    double ret = 1;  //ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½Ô¼ï¿½  forï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     for (double i = 1.0; i <= (int)target; ++i) {
 
@@ -103,5 +107,27 @@ double factorial(double target) {
 
 }
 int main(void){
-    
+     printf("í˜„ìž¬ê²°ê³¼ë¥¼ ë‹¤ìŒê³„ì‚°ì— ì‚¬ìš©í•˜ê² ìŠµë‹ˆê¹Œ?(y or n) : ");
+
+        fflush(stdin);
+
+
+
+        scanf("%c", &ch);
+
+
+
+        if (ch == 'y') {
+
+            a = result;
+
+            useRecycle = true;
+
+        }
+
+        else useRecycle = false;
+
+    }
+
+    return 0;
 }
