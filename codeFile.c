@@ -7,25 +7,25 @@
 
 double sum(double a, double b) {
 
-    return a + b;   //���ϱ� �Լ�    ���ϱ⿡ ���� �Լ�
+    return a + b;   //더하기 함수    더하기에 대한 함수
 
 }
 
 double minus(double a, double b) {
 
-    return a - b;    //���� �Լ�      ������ ���� �Լ�
+    return a - b;    //뺄셈 함수      뺄셈에 대한 함수
 
 }
 
 double multiply(double a, double b) {
 
-    return a * b;    //���ϱ� �Լ�  ���ϱ⿡ ���� �Լ�
+    return a * b;    //곱하기 함수  곱하기에 대한 함수
 
 }
 
 double divide(double a, double b) {
 
-    if (b == 0.0)return 0.0;  //������ �Լ� �����⿡ ���� �Լ�
+    if (b == 0.0)return 0.0;  //나누기 함수 나누기에 대한 함수
 
     else return a / b;
 
@@ -33,19 +33,19 @@ double divide(double a, double b) {
 
 double mod(double a, double b) {
 
-    return (double)((int)a % (int)b);  //�������� ���ϴ� �Լ� 
+    return (double)((int)a % (int)b);  //나머지를 구하는 함수  
 
 }
 
 double inverse(double a) {
 
-    return 1.0 / a;    //������ ���ϴ� �Լ� 
+    return 1.0 / a;    //역수를 구하는 함수
 
 }
 
 double sign(double a) {
 
-    return a * -1.0;   //���/������ �ٲٴ� �Լ� 
+    return a * -1.0;   //양수/정수를 바꾸는 함수 
 
 }
 
@@ -53,21 +53,21 @@ double sign(double a) {
 
 double exponential(double a, double b) {
 
-    return pow(a, b);   //�ŵ����� �Լ� 
+    return pow(a, b);   //거듭제곱 함수 
 
 }
 
 double inverse_exponential(double a, double b) {
 
-    return pow(a, inverse(b));   //�ŵ� ������ �Լ� a^b ��� 
+    return pow(a, inverse(b));   //거듭 제곱근 함수 a^b 계산
 
 }
 
 double mySin(double a) {
 
-    double q = (PI * a) / 180.0;   //�ﰢ�Լ� ����(�ﰢ�Լ��� ������ ���� (�� q������ ���Ǹ� ���� ������ ���������� �Է¹ޱ� ������ q�� �����ؼ� �������� ��ȯ�����ش�.)
+    double q = (PI * a) / 180.0;  
 
-    return sin(q);    //sin�Լ� 
+    return sin(q);    //sin함수 
 
 }
 
@@ -75,7 +75,7 @@ double myCos(double a) {
 
     double q = (PI * a) / 180.0;
 
-    return cos(q);    //cos�Լ� 
+    return cos(q);    //cos함수
 
 }
 
@@ -83,19 +83,19 @@ double myTan(double a) {
 
     double q = (PI * a) / 180.0;
 
-    return tan(q);    //tan�Լ� 
+    return tan(q);    //tan함수 
 
 }
 
 double myLog(double a) {
 
-    return log(a);    //log�Լ� 
+    return log(a);    //log함수 
 
 }
 
 double factorial(double target) {
 
-    double ret = 1;  //���丮�� �Լ�  for���� �̿��� ����
+    double ret = 1;  //팩토리얼 함수  for문을 이용한 정의
 
     for (double i = 1.0; i <= (int)target; ++i) {
 
@@ -178,80 +178,80 @@ int main(void){
 
         opCode = -1;
 
-    while (true) {
+        while (true) {
 
-        printf("����� ����Է� : "); scanf("%d", &opCode);
+            printf("사용할 계산입력 : "); scanf("%d", &opCode);
 
-        if (opCode < 0 || opCode > 13)printf("���ڸ� �ٽ� �Է����ּ���.\n");
+            if (opCode < 0 || opCode > 13)printf("숫자를 다시 입력해주세요.\n");
 
-        else break;
+            else break;
 
-    }
+        }
 
-    if (op_1[opCode] != NULL) {
+        if (op_1[opCode] != NULL) {
 
 
 
-        if (useRecycle == false) {
+            if (useRecycle == false) {
 
-            printf("���� �Է� (1��) : ");
+                printf("숫자 입력 (1개) : ");
 
-            scanf("%lf", &a);
+                scanf("%lf", &a);
+
+            }
+            else {
+
+                printf("마지막 결과값 사용이므로 입력없음\n");
+
+            }
+
+            result = op_1[opCode](a);
 
         }
         else {
 
-            printf("������ ����� ����̹Ƿ� �Է¾���\n");
+            if (useRecycle == false) {
+
+                printf("숫자 입력(2개) : ");
+
+                scanf("%lf %lf", &a, &b);
+
+            }
+            else {
+
+                printf("마지막 결과값 사용이므로 - 숫자 입력(1개) : ");
+
+                scanf("%lf", &b);
+
+            }
+
+            result = op_2[opCode](a, b);
 
         }
 
-        result = op_1[opCode](a);
+        printf("결과 : %lf\n", result);
 
-    }
-    else {
 
-        if (useRecycle == false) {
+         printf("현재결과를 다음계산에 사용하겠습니까?(y or n) : ");
 
-            printf("���� �Է�(2��) : ");
+            fflush(stdin);
 
-            scanf("%lf %lf", &a, &b);
 
+
+            scanf("%c", &ch);
+
+
+
+            if (ch == 'y') {
+
+                a = result;
+
+                useRecycle = true;
+
+            }
+
+            else useRecycle = false;
         }
-        else {
-
-            printf("������ ����� ����̹Ƿ� - ���� �Է�(1��) : ");
-
-            scanf("%lf", &b);
-
-        }
-
-        result = op_2[opCode](a, b);
-
-    }
-
-    printf("��� : %lf\n", result);
-
-
-     printf("현재결과를 다음계산에 사용하겠습니까?(y or n) : ");
-
-        fflush(stdin);
-
-
-
-        scanf("%c", &ch);
-
-
-
-        if (ch == 'y') {
-
-            a = result;
-
-            useRecycle = true;
-
-        }
-
-        else useRecycle = false;
-    }
 
     return 0;
 }
