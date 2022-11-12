@@ -106,6 +106,7 @@ double factorial(double target) {
     return ret;
 
 }
+
 int main(void){
     
     int opCode;
@@ -173,7 +174,63 @@ int main(void){
         printf("12 : log(1)\n");
 
         printf("13 : 팩토리얼(1)\n");
+
+
+        opCode = -1;
+
+    while (true) {
+
+        printf("����� ����Է� : "); scanf("%d", &opCode);
+
+        if (opCode < 0 || opCode > 13)printf("���ڸ� �ٽ� �Է����ּ���.\n");
+
+        else break;
+
     }
+
+    if (op_1[opCode] != NULL) {
+
+
+
+        if (useRecycle == false) {
+
+            printf("���� �Է� (1��) : ");
+
+            scanf("%lf", &a);
+
+        }
+        else {
+
+            printf("������ ����� ����̹Ƿ� �Է¾���\n");
+
+        }
+
+        result = op_1[opCode](a);
+
+    }
+    else {
+
+        if (useRecycle == false) {
+
+            printf("���� �Է�(2��) : ");
+
+            scanf("%lf %lf", &a, &b);
+
+        }
+        else {
+
+            printf("������ ����� ����̹Ƿ� - ���� �Է�(1��) : ");
+
+            scanf("%lf", &b);
+
+        }
+
+        result = op_2[opCode](a, b);
+
+    }
+
+    printf("��� : %lf\n", result);
+
 
      printf("현재결과를 다음계산에 사용하겠습니까?(y or n) : ");
 
@@ -194,9 +251,7 @@ int main(void){
         }
 
         else useRecycle = false;
-
     }
 
     return 0;
-
 }
