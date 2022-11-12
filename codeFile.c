@@ -102,6 +102,120 @@ double factorial(double target) {
     return ret;
 
 }
+opCode = -1;
+
+        while (true) {
+
+            printf("사용할 계산입력 : "); scanf("%d", &opCode);
+
+            if (opCode < 0 || opCode > 13)printf("숫자를 다시 입력해주세요.\n");
+
+            else break;
+
+        }
+
+        if (op_1[opCode] != NULL) {
+
+
+
+            if (useRecycle == false) {
+
+                printf("숫자 입력 (1개) : ");
+
+                scanf("%lf", &a);
+
+            }
+            else {
+
+                printf("마지막 결과값 사용이므로 입력없음\n");
+
+            }
+
+            result = op_1[opCode](a);
+
+        }
+        else {
+
+            if (useRecycle == false) {
+
+                printf("숫자 입력(2개) : ");
+
+                scanf("%lf %lf", &a, &b);
+
+            }
+            else {
+
+                printf("마지막 결과값 사용이므로 - 숫자 입력(1개) : ");
+
+                scanf("%lf", &b);
+
+            }
+
+            result = op_2[opCode](a, b);
+
+        }
+
+
+
+        printf("결과 : %lf\n", result);
+'
+
 int main(void){
-    
+    opCode = -1;
+
+    while (true) {
+
+        printf("사용할 계산입력 : "); scanf("%d", &opCode);
+
+        if (opCode < 0 || opCode > 13)printf("숫자를 다시 입력해주세요.\n");
+
+        else break;
+
+    }
+
+    if (op_1[opCode] != NULL) {
+
+
+
+        if (useRecycle == false) {
+
+            printf("숫자 입력 (1개) : ");
+
+            scanf("%lf", &a);
+
+        }
+        else {
+
+            printf("마지막 결과값 사용이므로 입력없음\n");
+
+        }
+
+        result = op_1[opCode](a);
+
+    }
+    else {
+
+        if (useRecycle == false) {
+
+            printf("숫자 입력(2개) : ");
+
+            scanf("%lf %lf", &a, &b);
+
+        }
+        else {
+
+            printf("마지막 결과값 사용이므로 - 숫자 입력(1개) : ");
+
+            scanf("%lf", &b);
+
+        }
+
+        result = op_2[opCode](a, b);
+
+    }
+
+
+
+    printf("결과 : %lf\n", result);
+
 }
